@@ -26,7 +26,7 @@ headers_dict =  {
 sensor = sensorObj.LM35(0)
 
 while True:
-    temp = sensor.getTemperature()
+    temp = int(sensor.getTemperature())
     print("Temperature:", temp , "C")
     data_dict = ' {"sdid": "' + sdid + '","type": "message","data": {"temperature": "'+str(temp)+'" } }'
     r = requests.post(artikcloud, headers = headers_dict, data=data_dict)
